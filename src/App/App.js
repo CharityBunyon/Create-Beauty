@@ -25,7 +25,6 @@ firebaseConnection();
 
 class App extends React.Component {
   state = {
-    authed: true,
     authed: false,
   }
 

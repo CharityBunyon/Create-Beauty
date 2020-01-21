@@ -10,6 +10,7 @@ import './App.scss';
 import Auth from '../components/pages/Auth/Auth';
 import Home from '../components/pages/Home/Home';
 import SingleLook from '../components/pages/SingleLook/SingleLook';
+import Nav from '../components/shared/Nav/Nav';
 
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
@@ -49,6 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <Router>
+        <Nav authed={authed}/>
           <Switch>
           <PublicRoute path="/auth" exact component={Auth} authed={authed}/>
           <PrivateRoute path="/" exact component={Home} authed={authed}/>

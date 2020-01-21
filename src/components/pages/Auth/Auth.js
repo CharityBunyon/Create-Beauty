@@ -13,10 +13,17 @@ class Auth extends React.Component {
   render() {
     return (
       <div className="Auth">
-        <h1>Auth Page</h1>
-        <button className="btn btn-danger" onClick={ this.loginClickEvent }>Login with Google</button>
+        <nav className="navbar navbar-expand-lg navbar-light mainCustomNav">
+            <div className="container d-flex justify-content-center">
+            <li className="nav-link mainTitle">CREATE BEAUTY</li>
+            </div>
+            <div>
+              <button className="btn btn-danger mainCustomBTN " onClick={ this.loginClickEvent}>Login</button>
+            </div>
+        </nav>
       </div>
     );
   }
 }
+
 export default Auth;

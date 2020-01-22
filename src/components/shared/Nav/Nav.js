@@ -36,7 +36,7 @@ class Nav extends React.Component {
 
     return (
       <div className="MyNavbar">
-          <div className="container d-flex justify-content-center">
+          <div className="container justify-content-center">
           </div>
           <div className="">
             { buildNavbar() }

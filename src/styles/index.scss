@@ -6,7 +6,14 @@ body {
   font-family:'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $lightblue;
+  // background-color: $white;
+  background-image: url(https://images.unsplash.com/photo-1511184150666-9bb7d41a88f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100% vh;
+  padding:0;
+  margin:0;
 }
 
 code {
@@ -14,6 +21,6 @@ code {
     monospace;
 }
 
-.App {
-  background-color: $lightblue;
-}
+// .App {
+//   background-color: $white;
+// }

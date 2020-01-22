@@ -19,12 +19,18 @@ class Home extends React.Component {
       .catch((err) => console.error('error from get looks', err));
   }
 
+  deleteLook = (lookId) => {
+    lookData.deleteLook(lookId)
+      .then(() => this.getLooks())
+      .catch((err) => console.error('error deleting look', err));
+  }
+
   render() {
     return (
       <div className="Home">
         <h1 className="welcome">Welcome, Nikki!</h1>
         <div className="looks d-flex flex-wrap">
-          {this.state.looks.map((look) => <Looks key={look.id} look={look}/>)}
+          {this.state.looks.map((look) => <Looks key={look.id} look={look} deleteLook={this.deleteLook} />)}
         </div>
       </div>
     );

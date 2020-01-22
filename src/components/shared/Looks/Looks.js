@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import lookShape from '../../../helpers/propz/lookShape';
 import './Looks.scss';
 
@@ -6,6 +7,13 @@ import './Looks.scss';
 class Looks extends React.Component {
   static propTypes = {
     look: lookShape.lookShape,
+    deleteLook: PropTypes.func,
+  }
+
+  deleteLookEvent = (e) => {
+    e.preventDefault();
+    const { deleteLook, look } = this.props;
+    deleteLook(look.id);
   }
 
   render() {
@@ -21,7 +29,7 @@ class Looks extends React.Component {
           </div>
           <div className="col">
             <button className="btn btn-outline-dark btn-lg lookBtn">View</button>
-            <button className="btn btn-outline-dark btn-lg lookBtn">Delete</button>
+            <button className="btn btn-outline-dark btn-lg lookBtn" onClick={this.deleteLookEvent}>Delete</button>
           </div>
         </div>
       </div>

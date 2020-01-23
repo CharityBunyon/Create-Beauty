@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import authData from '../../../helpers/data/authData';
 import lookData from '../../../helpers/data/lookData';
-import Ratings from '../../shared/Ratings/Ratings';
+
+// import Ratings from '../../shared/Ratings/Ratings';
 
 import './LookForm.scss';
 
@@ -74,24 +76,30 @@ class LookForm extends React.Component {
     } = this.state;
 
     return (
-    <form>
-        <div className="form-group ratingArea">
-          <p htmlFor="look-rating">The Rating</p>
-          <select value={lookRating} onChange={this.ratingChange}>
-            <option value="Au Natural">Au Natural</option>
-            <option value="That Bitch">That Bitch</option>
-            <option value="G.O.A.T">G.O.A.T</option>
-            <option value="Classic">Classic</option>
-            <option value="Snatched">Snatched</option>
-            <option value="Yass Queen">Yass Queen</option>
-          </select>
+    <div className="container">
+    <form className="mainForm">
+      <div className="text-center">
+        <h2 className="addTitle">ADD NEW BEAT</h2>
+      </div>
+      <div className="form-group">
+          <p htmlFor="look-img" className="titles">The Beat:</p>
+          <input
+          type="text"
+          className="form-control textareaStyles"
+          id="board-name"
+          placeholder="Enter Img Url"
+          value= { lookImgUrl }
+          onChange={ this.imgChange }
+          />
       </div>
 
-      <br/>
-      <div className="form-group col routineArea">
-        <p htmlFor="look-steps" className="col-6">The Routine</p>
+
+      {/* <br/> */}
+      <hr/>
+      <div className="form-group routineArea">
+        <p htmlFor="look-steps col-6" className="titles">The Routine:</p>
         <textarea
-        className="form-control col-6"
+        className="form-control textareaStyles"
         value={lookSteps}
         onChange= {this.stepsChange}
         placeholder="Enter Your Routine"
@@ -99,10 +107,10 @@ class LookForm extends React.Component {
         />
       </div>
       <br/>
-      <div className="form-group routineArea">
-        <p htmlFor="look-products col-6">The Products</p>
+      <div className="form-group productArea">
+        <p htmlFor="look-products col-6" className="titles">The Products:</p>
         <textarea
-        className="form-control col-6"
+        className="form-control textareaStyles"
         value={lookProducts}
         onChange= {this.productsChange}
         placeholder="Enter All Products"
@@ -110,27 +118,38 @@ class LookForm extends React.Component {
         />
       </div>
       <br/>
-      <div className="form-group">
-          <p htmlFor="look-img">The Beat</p>
-          <input
-          type="text"
-          className="form-control col-6"
-          id="board-name"
-          placeholder="Enter Img Url"
-          value= { lookImgUrl }
-          onChange={ this.imgChange }
-          />
+      <div className="container d-flex selectOptionsDiv">
+        <div className="form-group ratingArea col">
+            <p htmlFor="look-rating" className="titles1">The Rating:</p>
+            <div className="select">
+              <select className="selectOptions1" value={lookRating} onChange={this.ratingChange}>
+                <option value="Au Natural">Au Natural</option>
+                <option value="That Bitch">That Bitch</option>
+                <option value="G.O.A.T">G.O.A.T</option>
+                <option value="Classic">Classic</option>
+                <option value="Snatched">Snatched</option>
+                <option value="Yass Queen">Yass Queen</option>
+              </select>
+            </div>
+        </div>
+        <div>
+          <div className="form-group ratingArea col">
+              <p htmlFor="look-share" className="titles">To Share or Not To Share?</p>
+              <div className="select">
+              <select className="selectOptions" value={lookShare} onChange={this.shareChange}>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              </div>
+          </div>
+        </div>
       </div>
-      <br/>
-      <div className="form-group shareArea">
-          <p htmlFor="look-share">To Share or Not To Share</p>
-          <select value={lookShare} onChange={this.shareChange}>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
+      <div className="container d-flex justify-content-center">
+      <button className="btn btn-outline-dark btn-lg saveBtn" onClick={this.createLookEvent}>Save</button>
+      <button className="btn btn-outline-dark btn-lg closeBtn"><Link className="closeTitle" to="/">Close</Link></button>
       </div>
-      <button className="btn btn-danger saveBtn" onClick={this.createLookEvent}>Save Board</button>
     </form>
+    </div>
     );
   }
 }

@@ -31,7 +31,7 @@ class Home extends React.Component {
       <div className="Home text-center">
         <h1 className="welcome">Welcome, Nikki!</h1>
         <Link className="btn btn-outline-dark btn-lg createBtn" to="/look/new">Create A Look</Link>
-        <div className="looks d-flex flex-wrap">
+        <div className="looks container-fluid d-flex flex-wrap">
           {this.state.looks.map((look) => <Looks key={look.id} look={look} deleteLook={this.deleteLook} />)}
         </div>
       </div>

@@ -5,3 +5,14 @@
   font-weight: bold;
   font-size: 50px;
 }
+
+.createBtn {
+  margin: 20px;
+  font-weight: bold;
+}
+
+.createBtn:hover {
+  background-color: goldenrod;
+  color: #fff;
+  border: goldenrod;
+}

@@ -23,7 +23,7 @@ class Looks extends React.Component {
     <div className="Look col-4">
       <div className="card lookCard">
         <div className="card-body text-center">
-          <h5 className="card-title">{look.rating}</h5>
+        <h5 className="card-title">{look.rating}</h5>
           <div className="text-center">
           <img className="lookImg" src={look.imgUrl} alt=""/>
           </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Home.scss';
 import lookData from '../../../helpers/data/lookData';
 import authData from '../../../helpers/data/authData';
@@ -27,8 +28,9 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className="Home text-center">
         <h1 className="welcome">Welcome, Nikki!</h1>
+        <Link className="btn btn-outline-dark btn-lg createBtn" to="/look/new">Create A Look</Link>
         <div className="looks d-flex flex-wrap">
           {this.state.looks.map((look) => <Looks key={look.id} look={look} deleteLook={this.deleteLook} />)}
         </div>

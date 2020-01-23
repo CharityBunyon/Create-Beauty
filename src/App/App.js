@@ -12,6 +12,7 @@ import Home from '../components/pages/Home/Home';
 import SingleLook from '../components/pages/SingleLook/SingleLook';
 import Nav from '../components/shared/Nav/Nav';
 import Footer from '../components/shared/Footer/Footer';
+import LookForm from '../components/pages/LookForm/LookForm';
 
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
@@ -55,7 +56,9 @@ class App extends React.Component {
           <Switch>
           <PublicRoute path="/auth" exact component={Auth} authed={authed}/>
           <PrivateRoute path="/" exact component={Home} authed={authed}/>
-          <PrivateRoute path="/look/:lookId" exact component={SingleLook} authed={authed} />
+          <PrivateRoute path="/look/new" exact component={LookForm} authed={authed}/>
+          <PrivateRoute path="/look/:lookId/edit" exact component={LookForm} authed={authed}/>
+          <PrivateRoute path="/look/:lookId" exact component={SingleLook} authed={authed}/>
           </Switch>
           <Footer/>
         </Router>

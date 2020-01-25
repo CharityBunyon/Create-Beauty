@@ -15,12 +15,20 @@ color: goldenrod;
   padding-bottom: 50px;
 }
 
-.saveBtn {
+.formBtns {
+  margin-bottom: 100px;
+  padding-bottom: 25px;
+}
+
+.saveBtn .editBtn {
+  // margin-right: 10px;
+  // width: 25%;
+  // margin-left: 20px;
   margin-bottom: 50px;
-  margin-right: 50px;
-  width: 25%;
   font-size: 20px;
-  
+  text-decoration: none;
+  color: #fff;
+  width: 25%;
 }
 
 .saveBtn:hover {

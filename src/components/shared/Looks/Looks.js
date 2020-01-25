@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import lookShape from '../../../helpers/propz/lookShape';
 import './Looks.scss';
@@ -28,7 +29,8 @@ class Looks extends React.Component {
           <img className="lookImg" src={look.imgUrl} alt=""/>
           </div>
           <div className="col">
-            <button className="btn btn-outline-dark btn-lg lookBtn">View</button>
+            <Link className="btn btn-outline-dark btn-lg lookBtn" to={`/look/${look.id}`}>View</Link>
+            <Link className="btn btn-warning" to={`/look/${look.id}/edit`}>Edit</Link>
             <button className="btn btn-outline-dark btn-lg lookBtn" onClick={this.deleteLookEvent}>Delete</button>
           </div>
         </div>

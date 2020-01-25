@@ -54,6 +54,22 @@ class LookForm extends React.Component {
     this.setState({ lookShare: e.target.value });
   }
 
+  editLookEvent =(e) => {
+    e.preventDefault();
+    const { lookId } = this.props.match.params;
+    const editLook = {
+      rating: this.state.lookRating,
+      imgUrl: this.state.lookImgUrl,
+      steps: this.state.lookSteps,
+      products: this.state.lookProducts,
+      share: this.state.lookProducts,
+      uid: authData.getUid(),
+    };
+    lookData.updateLook(lookId, editLook)
+      .then(() => this.props.history.push('/'))
+      .catch((err) => console.error('error from edit look', err));
+  }
+
   createLookEvent = (e) => {
     e.preventDefault();
     const newLook = {
@@ -74,6 +90,8 @@ class LookForm extends React.Component {
     const {
       lookRating, lookImgUrl, lookSteps, lookProducts, lookShare,
     } = this.state;
+
+    const { lookId } = this.props.match.params;
 
     return (
     <div className="container">
@@ -144,8 +162,12 @@ class LookForm extends React.Component {
           </div>
         </div>
       </div>
-      <div className="container d-flex justify-content-center">
-      <button className="btn btn-outline-dark btn-lg saveBtn" onClick={this.createLookEvent}>Save</button>
+
+      <div className="container justify-content-center d-flex formBtns">
+      {lookId
+        ? <button className="btn btn-outline-dark btn-lg editBtn" onClick={this.editLookEvent}>Edit</button>
+        : <button className="btn btn-outline-dark btn-lg saveBtn" onClick={this.createLookEvent}>Add</button>
+      }
       <button className="btn btn-outline-dark btn-lg closeBtn"><Link className="closeTitle" to="/">Close</Link></button>
       </div>
     </form>
@@ -155,3 +177,12 @@ class LookForm extends React.Component {
 }
 
 export default LookForm;
+
+// { boardId
+//   ? <button className="btn btn-danger" onClick={this.editBoardEvent}>Edit</button>
+//   : <button className="btn btn-danger" onClick={this.saveBoardEvent}>Save Board</button>
+// }
+// {lookId
+// ?<button className="btn btn-outline-dark btn-lg saveBtn" onClick={this.createLookEvent}>Add</button>
+// :<button className="btn btn-outline-dark btn-lg " onClick={this. editLookEventt}>Edit</button>
+// }

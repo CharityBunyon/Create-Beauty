@@ -21,14 +21,15 @@ color: goldenrod;
 }
 
 .saveBtn .editBtn {
-  // margin-right: 10px;
-  // width: 25%;
-  // margin-left: 20px;
-  margin-bottom: 50px;
+  margin-right: 60px;
+  width: 25%;
+  margin-left: 20px;
+  // margin-bottom: 50px;
   font-size: 20px;
   text-decoration: none;
   color: #fff;
-  width: 25%;
+  // width: 25%;
+  justify-content: center;
 }
 
 .saveBtn:hover {
@@ -38,11 +39,11 @@ color: goldenrod;
 }
 
 .closeBtn {
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
   font-size: 20px;
   text-decoration: none;
   color: #fff;
-  width: 25%;
+  // width: 25%;
 }
 
 .closeBtn:hover {

@@ -163,12 +163,16 @@ class LookForm extends React.Component {
         </div>
       </div>
 
-      <div className="container justify-content-center d-flex formBtns">
+      <div className="container d-flex justify-content-center formBtns">
+        <div>
       {lookId
         ? <button className="btn btn-outline-dark btn-lg editBtn" onClick={this.editLookEvent}>Edit</button>
         : <button className="btn btn-outline-dark btn-lg saveBtn" onClick={this.createLookEvent}>Add</button>
       }
+      </div>
+      <div>
       <button className="btn btn-outline-dark btn-lg closeBtn"><Link className="closeTitle" to="/">Close</Link></button>
+      </div>
       </div>
     </form>
     </div>
@@ -177,12 +181,3 @@ class LookForm extends React.Component {
 }
 
 export default LookForm;
-
-// { boardId
-//   ? <button className="btn btn-danger" onClick={this.editBoardEvent}>Edit</button>
-//   : <button className="btn btn-danger" onClick={this.saveBoardEvent}>Save Board</button>
-// }
-// {lookId
-// ?<button className="btn btn-outline-dark btn-lg saveBtn" onClick={this.createLookEvent}>Add</button>
-// :<button className="btn btn-outline-dark btn-lg " onClick={this. editLookEventt}>Edit</button>
-// }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import lookData from '../../../helpers/data/lookData';
 import './SingleLook.scss';
 
+
 class SingleLook extends React.Component {
   state = {
     look: {},
@@ -39,7 +40,7 @@ class SingleLook extends React.Component {
           <div className="col">
           <div className="lookSteps">
             <p className="rouProTitle">The Routine:</p>
-            <p className="rouProPara">{look.steps}</p>
+    <p className="rouProPara">{ look.steps ? Object.values(look.steps).map((item, i) => <div key={ look.steps.index }>step {i + 1}:{item}</div>) : null}</p>
           </div>
 
           <div>

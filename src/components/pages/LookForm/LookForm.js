@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import authData from '../../../helpers/data/authData';
 import lookData from '../../../helpers/data/lookData';
+import Routine from './Routine';
 
 // import Ratings from '../../shared/Ratings/Ratings';
 
@@ -11,7 +12,7 @@ class LookForm extends React.Component {
   state ={
     lookRating: '',
     lookImgUrl: '',
-    lookSteps: '',
+    lookSteps: {},
     lookProducts: '',
     lookShare: '',
   }
@@ -27,6 +28,19 @@ class LookForm extends React.Component {
         })
         .catch((err) => console.error('error from get singleLook, err'));
     }
+  }
+
+
+  handleRoutine = (e) => {
+    const { name, value } = e.target;
+    const { lookSteps } = { ...this.state };
+    lookSteps[name] = value;
+    this.setState({ lookSteps });
+  }
+
+  onChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   }
 
   ratingChange = (e) => {
@@ -110,27 +124,16 @@ class LookForm extends React.Component {
           onChange={ this.imgChange }
           />
       </div>
-
-
-      {/* <br/> */}
-      <hr/>
-      <div className="form-group routineArea">
-        <p htmlFor="look-steps col-6" className="titles">The Routine:</p>
-        <textarea
-        className="form-control textareaStyles"
-        value={lookSteps}
-        onChange= {this.stepsChange}
-        placeholder="Enter Your Routine"
-        id="look-steps"
-        />
-      </div>
+      <br/>
+      <Routine lookSteps={lookSteps} handleRoutine={this.handleRoutine} />
       <br/>
       <div className="form-group productArea">
         <p htmlFor="look-products col-6" className="titles">The Products:</p>
         <textarea
         className="form-control textareaStyles"
         value={lookProducts}
-        onChange= {this.productsChange}
+        name='lookProducts'
+        onChange= {this.onChange}
         placeholder="Enter All Products"
         id="look-products"
         />

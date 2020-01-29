@@ -1,22 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import lookData from '../../../helpers/data/lookData';
+import stepData from '../../../helpers/data/stepData';
 import './SingleLook.scss';
+import Steps from '../../shared/Steps/Steps';
 
 class SingleLook extends React.Component {
   state = {
     look: {},
+    steps: [],
+  }
+
+  getSteps = (lookId) => {
+    stepData.getStepsByLookId(lookId)
+      .then((response) => {
+        response.sort((a, b) => {
+          if (a.orderNumber < b.orderNumber) {
+            return -1;
+          }
+          if (a.orderNumber > b.orderNumber) {
+            return 1;
+          }
+          return 0;
+        });
+        console.log(response);
+        this.setState({ steps: response });
+      })
+      .catch((err) => console.error('error from getting steps', err));
   }
 
   componentDidMount() {
     const { lookId } = this.props.match.params;
+    this.getSteps(lookId);
     lookData.getSingleLook(lookId)
       .then((response) => {
         this.setState({ look: response.data });
       })
-      .catch((err) => console.error('error from get boards', err));
+      .catch((err) => console.error('error from get singleLooks', err));
   }
-
 
   render() {
     const { look } = this.state;
@@ -39,7 +60,7 @@ class SingleLook extends React.Component {
           <div className="col">
           <div className="lookSteps">
             <p className="rouProTitle">The Routine:</p>
-            <p className="rouProPara">{look.steps}</p>
+            {this.state.steps.map((step) => <Steps key={step.id} step={step} />)}
           </div>
 
           <div>

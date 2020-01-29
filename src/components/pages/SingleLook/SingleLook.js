@@ -5,6 +5,7 @@ import stepData from '../../../helpers/data/stepData';
 import './SingleLook.scss';
 import Steps from '../../shared/Steps/Steps';
 
+
 class SingleLook extends React.Component {
   state = {
     look: {},
@@ -61,6 +62,7 @@ class SingleLook extends React.Component {
           <div className="lookSteps">
             <p className="rouProTitle">The Routine:</p>
             {this.state.steps.map((step) => <Steps key={step.id} step={step} />)}
+
           </div>
 
           <div>

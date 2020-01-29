@@ -4,10 +4,13 @@ import './Home.scss';
 import lookData from '../../../helpers/data/lookData';
 import authData from '../../../helpers/data/authData';
 import Looks from '../../shared/Looks/Looks';
+import Ratings from '../../shared/Ratings/Ratings';
+import ratingData from '../../../helpers/data/ratingData';
 
 class Home extends React.Component {
   state = {
     looks: [],
+    ratings: [],
   }
 
   componentDidMount() {
@@ -19,6 +22,12 @@ class Home extends React.Component {
       .then((looks) => this.setState({ looks }))
       .catch((err) => console.error('error from get looks', err));
   }
+
+  // getRatings = () => {
+  //   ratingData.getLooksByName(authData.getUid())
+  //     .then((ratings) => this.setState({ ratings }))
+  //     .catch((err) => console.error('error from get rating', err));
+  // }
 
   deleteLook = (lookId) => {
     lookData.deleteLook(lookId)

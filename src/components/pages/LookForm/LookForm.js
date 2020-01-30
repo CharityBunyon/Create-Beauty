@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import authData from '../../../helpers/data/authData';
 import lookData from '../../../helpers/data/lookData';
-import StepInput from '../../shared/StepInput/StepInput';
+// import StepInput from '../../shared/StepInput/StepInput';
 // import stepData from '../../../helpers/data/stepData';
 
 
@@ -12,14 +12,12 @@ class LookForm extends React.Component {
   state ={
     lookRating: '',
     lookImgUrl: '',
-    lookSteps: [],
+    lookSteps: '',
     lookProducts: '',
     lookShare: '',
-    steps: [],
   }
 
   componentDidMount() {
-    // this.getSteps();
     const { lookId } = this.props.match.params;
     if (lookId) {
       lookData.getSingleLook(lookId)
@@ -32,24 +30,6 @@ class LookForm extends React.Component {
     }
   }
 
-  // getSteps = () => {
-  //   stepData.getSteps()
-  //     .then((steps) => this.setState({ steps }))
-  //     .catch((err) => console.error('error from get steps', err));
-  // }
-
-
-  handleRoutine = (e) => {
-    const { name, value } = e.target;
-    const { lookSteps } = { ...this.state };
-    lookSteps[name] = value;
-    this.setState({ lookSteps });
-  }
-
-  onChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  }
 
   ratingChange = (e) => {
     e.preventDefault();
@@ -62,18 +42,8 @@ class LookForm extends React.Component {
   }
 
   stepsChange = (e) => {
-    console.log(typeof Number(e.target.id.split('step-')[1]));
     e.preventDefault();
-    const listOfSteps = this.state.lookSteps;
-    const step = {
-      lookId: '',
-      description: e.target.value,
-      orderNumber: Number(e.target.id.split('step-')[1]),
-    };
-
-    listOfSteps.push(step);
-
-    this.setState({ lookSteps: listOfSteps });
+    this.setState({ lookSteps: e.target.value });
   }
 
   productsChange = (e) => {
@@ -84,13 +54,6 @@ class LookForm extends React.Component {
   shareChange = (e) => {
     e.preventDefault();
     this.setState({ lookShare: e.target.value });
-  }
-
-  input = () => <StepInput/>;
-
-  addInputEvent = (e) => {
-    e.preventDefault();
-    console.log('hello');
   }
 
   editLookEvent =(e) => {
@@ -120,10 +83,7 @@ class LookForm extends React.Component {
       uid: authData.getUid(),
     };
     lookData.saveLook(newLook)
-      .then((look) => {
-        console.log(look);
-        this.props.history.push('/');
-      })
+      .then(() => this.props.history.push('/'))
       .catch((err) => console.error('error from createLook, err'));
   }
 
@@ -135,9 +95,6 @@ class LookForm extends React.Component {
 
     const { lookId } = this.props.match.params;
 
-    // loopingOverSteps = () => {
-    //   while ()
-    // }
 
     return (
     <div className="container">
@@ -154,25 +111,19 @@ class LookForm extends React.Component {
           onChange={ this.imgChange }
           />
       </div>
-      <br/>
-      <div className="form-group">
-        <input
-          type="text"
-          className="form-control textareaStyles"
-          id="step-1"
-          placeholder="Enter Step One"
-          onBlur={ this.stepsChange }
-        />
-        <input
-        type="text"
+      {/* <br/> */}
+      <div className="form-group routineArea">
+        <p htmlFor="look-steps col-6" className="titles">The Routine:</p>
+        <textarea
         className="form-control textareaStyles"
-        id="step-2"
-        placeholder="Enter Step Two"
-        onBlur={ this.stepsChange }
+        value={lookSteps}
+        onChange= {this.stepsChange}
+        placeholder="Enter Your Routine"
+        id="look-steps"
         />
-        </div>
+      </div>
 
-      <br/>
+      {/* <br/> */}
       <div className="form-group productArea">
         <p htmlFor="look-products col-6" className="titles">The Products:</p>
         <textarea
@@ -214,14 +165,13 @@ class LookForm extends React.Component {
 
       <div className="container d-flex justify-content-center formBtns">
         <div>
-      {lookId
-        ? <button className="btn btn-outline-dark btn-lg editBtn" onClick={this.editLookEvent}>Edit</button>
-        : <button className="btn btn-outline-dark btn-lg saveBtn" onClick={this.createLookEvent}>Add</button>
-      }
+        {lookId
+          ? <button className="btn btn-outline-dark btn-lg editBtn" onClick={this.editLookEvent}>Edit</button>
+          : <button className="btn btn-outline-dark btn-lg saveBtn" onClick={this.createLookEvent}>Add</button>
+        }
+        <button className="btn btn-outline-dark btn-lg closeBtn"><Link className="closeTitle" to="/">Close</Link></button>
       </div>
-      <div>
-      <button className="btn btn-outline-dark btn-lg closeBtn"><Link className="closeTitle" to="/">Close</Link></button>
-      </div>
+
       </div>
     </form>
     </div>

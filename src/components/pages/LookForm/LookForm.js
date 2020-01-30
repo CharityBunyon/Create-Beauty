@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import authData from '../../../helpers/data/authData';
 import lookData from '../../../helpers/data/lookData';
-import Routine from './Routine';
+import StepInput from '../../shared/StepInput/StepInput';
+// import stepData from '../../../helpers/data/stepData';
 
-// import Ratings from '../../shared/Ratings/Ratings';
 
 import './LookForm.scss';
 
@@ -12,12 +12,14 @@ class LookForm extends React.Component {
   state ={
     lookRating: '',
     lookImgUrl: '',
-    lookSteps: {},
+    lookSteps: [],
     lookProducts: '',
     lookShare: '',
+    steps: [],
   }
 
   componentDidMount() {
+    // this.getSteps();
     const { lookId } = this.props.match.params;
     if (lookId) {
       lookData.getSingleLook(lookId)
@@ -29,6 +31,12 @@ class LookForm extends React.Component {
         .catch((err) => console.error('error from get singleLook, err'));
     }
   }
+
+  // getSteps = () => {
+  //   stepData.getSteps()
+  //     .then((steps) => this.setState({ steps }))
+  //     .catch((err) => console.error('error from get steps', err));
+  // }
 
 
   handleRoutine = (e) => {
@@ -54,8 +62,18 @@ class LookForm extends React.Component {
   }
 
   stepsChange = (e) => {
+    console.log(typeof Number(e.target.id.split('step-')[1]));
     e.preventDefault();
-    this.setState({ lookSteps: e.target.value });
+    const listOfSteps = this.state.lookSteps;
+    const step = {
+      lookId: '',
+      description: e.target.value,
+      orderNumber: Number(e.target.id.split('step-')[1]),
+    };
+
+    listOfSteps.push(step);
+
+    this.setState({ lookSteps: listOfSteps });
   }
 
   productsChange = (e) => {
@@ -66,6 +84,13 @@ class LookForm extends React.Component {
   shareChange = (e) => {
     e.preventDefault();
     this.setState({ lookShare: e.target.value });
+  }
+
+  input = () => <StepInput/>;
+
+  addInputEvent = (e) => {
+    e.preventDefault();
+    console.log('hello');
   }
 
   editLookEvent =(e) => {
@@ -95,37 +120,58 @@ class LookForm extends React.Component {
       uid: authData.getUid(),
     };
     lookData.saveLook(newLook)
-      .then(() => this.props.history.push('/'))
+      .then((look) => {
+        console.log(look);
+        this.props.history.push('/');
+      })
       .catch((err) => console.error('error from createLook, err'));
   }
 
 
   render() {
     const {
-      lookRating, lookImgUrl, lookSteps, lookProducts, lookShare,
+      lookRating, lookImgUrl, lookProducts, lookShare, lookSteps,
     } = this.state;
 
     const { lookId } = this.props.match.params;
+
+    // loopingOverSteps = () => {
+    //   while ()
+    // }
 
     return (
     <div className="container">
     <form className="mainForm">
       <div className="text-center">
-        <h2 className="addTitle">ADD NEW BEAT</h2>
       </div>
       <div className="form-group">
           <p htmlFor="look-img" className="titles">The Beat:</p>
           <input
           type="text"
           className="form-control textareaStyles"
-          id="board-name"
           placeholder="Enter Img Url"
           value= { lookImgUrl }
           onChange={ this.imgChange }
           />
       </div>
       <br/>
-      <Routine lookSteps={lookSteps} handleRoutine={this.handleRoutine} />
+      <div className="form-group">
+        <input
+          type="text"
+          className="form-control textareaStyles"
+          id="step-1"
+          placeholder="Enter Step One"
+          onBlur={ this.stepsChange }
+        />
+        <input
+        type="text"
+        className="form-control textareaStyles"
+        id="step-2"
+        placeholder="Enter Step Two"
+        onBlur={ this.stepsChange }
+        />
+        </div>
+
       <br/>
       <div className="form-group productArea">
         <p htmlFor="look-products col-6" className="titles">The Products:</p>
@@ -133,7 +179,7 @@ class LookForm extends React.Component {
         className="form-control textareaStyles"
         value={lookProducts}
         name='lookProducts'
-        onChange= {this.onChange}
+        onChange= {this.productsChange}
         placeholder="Enter All Products"
         id="look-products"
         />

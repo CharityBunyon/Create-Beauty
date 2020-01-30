@@ -5,6 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import './Nav.scss';
 
+
 class Nav extends React.Component {
   static propTypes ={
     authed: PropTypes.bool,
@@ -16,7 +17,9 @@ class Nav extends React.Component {
   }
 
   render() {
-    const { authed } = this.props;
+    const { authed, userObj } = this.props;
+
+
     const buildNavbar = () => {
       if (authed) {
         return (
@@ -24,6 +27,7 @@ class Nav extends React.Component {
             <div className="container d-flex justify-content-center">
             <Link className="nav-link brandTitle" to="/">CREATE BEAUTY</Link>
             </div>
+            <img className="profileImg" src={userObj.photoURL} alt=""/>
             <div className="">
             <button className="nav-link btn btn-danger customBTN" onClick={this.logMeOut}>Logout</button>
             </div>

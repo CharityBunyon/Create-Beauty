@@ -23,11 +23,6 @@ class Home extends React.Component {
       .catch((err) => console.error('error from get looks', err));
   }
 
-  // getRatings = () => {
-  //   ratingData.getLooksByName(authData.getUid())
-  //     .then((ratings) => this.setState({ ratings }))
-  //     .catch((err) => console.error('error from get rating', err));
-  // }
 
   deleteLook = (lookId) => {
     lookData.deleteLook(lookId)
@@ -36,9 +31,13 @@ class Home extends React.Component {
   }
 
   render() {
+    const { userObj } = this.props;
+    // console.log(this.props.userObj);
+
     return (
       <div className="Home text-center">
-        <h1 className="welcome">Welcome, Nikki!</h1>
+
+      <h1 className="welcome">Welcome, {userObj.displayName}</h1>
         <Link className="btn btn-outline-dark btn-lg createBtn" to="/look/new">Create A Look</Link>
         <div className="looks container-fluid d-flex flex-wrap">
           {this.state.looks.map((look) => <Looks key={look.id} look={look} deleteLook={this.deleteLook} />)}

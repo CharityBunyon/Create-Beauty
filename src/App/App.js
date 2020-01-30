@@ -29,13 +29,14 @@ firebaseConnection();
 class App extends React.Component {
   state = {
     authed: false,
+    userObj: '',
   }
 
 
   componentDidMount() {
-    this.removeListener = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ authed: true });
+    this.removeListener = firebase.auth().onAuthStateChanged((userObj) => {
+      if (userObj) {
+        this.setState({ authed: true, userObj });
       } else {
         this.setState({ authed: false });
       }
@@ -47,15 +48,15 @@ class App extends React.Component {
   }
 
   render() {
-    const { authed } = this.state;
+    const { authed, userObj } = this.state;
 
     return (
       <div>
         <Router>
-        <Nav authed={authed}/>
+        <Nav authed={authed} userObj={userObj}/>
           <Switch>
           <PublicRoute path="/auth" exact component={Auth} authed={authed}/>
-          <PrivateRoute path="/" exact component={Home} authed={authed}/>
+          <PrivateRoute path="/" exact component={Home} authed={authed} userObj={userObj}/>
           <PrivateRoute path="/look/new" exact component={LookForm} authed={authed}/>
           <PrivateRoute path="/look/:lookId/edit" exact component={LookForm} authed={authed}/>
           <PrivateRoute path="/look/:lookId" exact component={SingleLook} authed={authed}/>

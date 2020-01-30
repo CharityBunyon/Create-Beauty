@@ -5,6 +5,7 @@ const lookShape = PropTypes.shape({
   uid: PropTypes.string.isRequired,
   rating: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
+  steps: PropTypes.string.isRequired,
   products: PropTypes.string.isRequired,
   // share: PropTypes.string.isRequired,
 });

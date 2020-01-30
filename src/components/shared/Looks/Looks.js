@@ -21,7 +21,7 @@ class Looks extends React.Component {
     const { look } = this.props;
 
     return (
-    <div className="Look col-4">
+    <div className="Look col">
       <div className="card lookCard">
         <div className="card-body text-center">
         <h5 className="card-title">{look.rating}</h5>
@@ -29,9 +29,9 @@ class Looks extends React.Component {
           <img className="lookImg" src={look.imgUrl} alt=""/>
           </div>
           <div className="col">
-            <Link className="btn btn-outline-dark btn-lg lookBtn" to={`/look/${look.id}`}>View</Link>
-            <Link className="btn btn-outline-dark btn-lg editBtn" to={`/look/${look.id}/edit`}>Edit</Link>
-            <button className="btn btn-outline-dark btn-lg lookBtn" onClick={this.deleteLookEvent}>Delete</button>
+            <Link className="btn btn-outline-dark btn-lg lookBtn" to={`/look/${look.id}`}>VIEW</Link>
+            <Link className="btn btn-outline-dark btn-lg editBtn" to={`/look/${look.id}/edit`}>EDIT</Link>
+            <button className="btn btn-outline-dark btn-lg lookBtn" onClick={this.deleteLookEvent}>DELETE</button>
           </div>
         </div>
       </div>

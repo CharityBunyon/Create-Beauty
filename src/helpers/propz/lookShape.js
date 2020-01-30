@@ -6,7 +6,7 @@ const lookShape = PropTypes.shape({
   rating: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
   products: PropTypes.string.isRequired,
-  share: PropTypes.bool.isRequired,
+  // share: PropTypes.string.isRequired,
 });
 
 export default { lookShape };

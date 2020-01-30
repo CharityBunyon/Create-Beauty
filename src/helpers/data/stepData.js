@@ -7,20 +7,22 @@ const baseUrl = apiKeys.firebaseKeys.databaseURL;
 const getStepsByLookId = (id) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/steps.json?orderBy="lookId"&equalTo="${id}"`)
     .then((result) => {
-      const allRatingsObj = result.data;
-      const ratings = [];
-      if (allRatingsObj != null) {
-        Object.keys(allRatingsObj).forEach((ratingId) => {
-          const newRating = allRatingsObj[ratingId];
-          newRating.id = ratingId;
-          ratings.push(newRating);
+      const allStepsObj = result.data;
+      const steps = [];
+      if (allStepsObj != null) {
+        Object.keys(allStepsObj).forEach((stepId) => {
+          const newSteps = allStepsObj[stepId];
+          newSteps.id = stepId;
+          steps.push(newSteps);
         });
       }
-      resolve(ratings);
+      resolve(steps);
     })
     .catch((err) => {
       reject(err);
     });
 });
 
-export default { getStepsByLookId };
+const saveSteps = (listOfSteps) => axios.post(`${baseUrl}/steps.json`, listOfSteps);
+
+export default { getStepsByLookId, saveSteps };

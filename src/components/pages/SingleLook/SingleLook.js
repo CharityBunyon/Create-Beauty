@@ -24,7 +24,6 @@ class SingleLook extends React.Component {
           }
           return 0;
         });
-        console.log(response);
         this.setState({ steps: response });
       })
       .catch((err) => console.error('error from getting steps', err));
@@ -62,7 +61,6 @@ class SingleLook extends React.Component {
           <div className="lookSteps">
             <p className="rouProTitle">The Routine:</p>
             {this.state.steps.map((step) => <Steps key={step.id} step={step} />)}
-
           </div>
 
           <div>

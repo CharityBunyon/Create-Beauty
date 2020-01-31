@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 /src/helpers/apiKeys.json
 /package-lock.json
+/src/helpers/data/imageData.js
 
 # dependencies
 /node_modules

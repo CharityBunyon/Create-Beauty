@@ -24,12 +24,14 @@ class Nav extends React.Component {
       if (authed) {
         return (
           <nav className="navbar navbar-expand-lg navbar-light customNav ">
-            <div className="container d-flex justify-content-center">
+            <div className="container">
             <Link className="nav-link brandTitle" to="/">CREATE BEAUTY</Link>
             </div>
+            <div className="justify-content-end container">
             <img className="profileImg" src={userObj.photoURL} alt=""/>
             <div className="">
             <button className="nav-link btn btn-danger customBTN" onClick={this.logMeOut}>Logout</button>
+            </div>
             </div>
         </nav>
         );

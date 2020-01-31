@@ -22,6 +22,7 @@ const getLooksByUid = (uid) => new Promise((resolve, reject) => {
     });
 });
 
+
 const getSingleLook = (lookId) => axios.get(`${baseUrl}/looks/${lookId}.json`);
 
 const saveLook = (lookInfo) => axios.post(`${baseUrl}/looks.json`, lookInfo);

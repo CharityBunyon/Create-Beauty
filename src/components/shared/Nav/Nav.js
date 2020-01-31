@@ -28,6 +28,7 @@ class Nav extends React.Component {
             <Link className="nav-link brandTitle" to="/">CREATE BEAUTY</Link>
             </div>
             <div className="justify-content-end container">
+              <h3 className="userName">Welcome, {userObj.displayName}</h3>
             <img className="profileImg" src={userObj.photoURL} alt=""/>
             <div className="">
             <button className="nav-link btn btn-danger customBTN" onClick={this.logMeOut}>Logout</button>

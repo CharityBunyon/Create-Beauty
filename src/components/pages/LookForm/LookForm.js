@@ -118,7 +118,7 @@ class LookForm extends React.Component {
     <div className="container">
     <form className="mainForm">
       <div className="text-center">
-        <h3>THE BEAT</h3>
+        <h3 className="formTitle">THE BEAT DEETS</h3>
       </div>
       <div className="form-group">
           <p htmlFor="look-img" className="titles">Upload Image</p>
@@ -166,7 +166,7 @@ class LookForm extends React.Component {
                 <option value="G.O.A.T">G.O.A.T</option>
                 <option value="Classic">Classic</option>
                 <option value="Snatched">Snatched</option>
-                <option value="Yass Queen">Yass Queen</option>
+                <option value="Yass Queen">Yasss Queen</option>
               </select>
             </div>
         </div>

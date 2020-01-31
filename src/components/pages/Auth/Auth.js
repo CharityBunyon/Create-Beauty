@@ -14,10 +14,10 @@ class Auth extends React.Component {
     return (
       <div className="Auth">
         <nav className="navbar navbar-expand-lg navbar-light mainCustomNav">
-            <div className="container d-flex justify-content-center">
+            <div className="container">
             <li className="nav-link mainTitle">CREATE BEAUTY</li>
             </div>
-            <div>
+            <div className="justify-content-end container">
               <button className="btn btn-danger mainCustomBTN " onClick={ this.loginClickEvent}>Login</button>
             </div>
         </nav>

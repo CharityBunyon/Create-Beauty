@@ -41,13 +41,14 @@ class Auth extends React.Component {
             </div>
         </nav>
         <CEO />
-        <div>
+        <div className="">
           <h2 className="creatorTitle">Meet Our Creators</h2>
-          <p>Upload your new look and tag @createbeauty - let us show you off!</p>
+          <p className="creatorBuyIn">Upload your new look and tag @createbeauty - let us show you off!</p>
         </div>
-        <div className=" container-fluid d-flex flex-wrap col">
+        <div className="container-fluid d-flex flex-wrap creatorsDiv">
           {this.state.creators.map((creator) => <Collage key={creator.id} creator={creator} />)}
         </div>
+        <br/>
       </div>
 
     );

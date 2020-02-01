@@ -36,7 +36,7 @@ class Auth extends React.Component {
             <li className="nav-link mainTitle">CREATE BEAUTY</li>
             </div>
             <div className="justify-content-end container">
-              <button className="btn btn-danger mainCustomBTN" data-target="modal-signup">Sign Up</button>
+              {/* <button className="btn btn-danger mainCustomBTN" data-target="modal-signup">Sign Up</button> */}
               <button className="btn btn-danger mainCustomBTN" onClick={ this.loginClickEvent}>Login</button>
             </div>
         </nav>

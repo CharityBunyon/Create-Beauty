@@ -2,6 +2,7 @@
 /src/helpers/apiKeys.json
 /package-lock.json
 /src/helpers/data/imageData.js
+.firebase/
 
 # dependencies
 /node_modules

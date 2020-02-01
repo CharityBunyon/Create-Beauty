@@ -48,15 +48,17 @@ margin-bottom: 70px;
 }
 
 .brand {
-  width: 600px;
+  width: 500px;
   height: 1000px;
 }
 
 .models {
   margin-bottom: 80px;
+  overflow: hidden;
+  width: 100vw;
 }
 
 .slogan {
-  margin:10px 30px;
+  margin:10px 60px;
   letter-spacing: 5px;
 }

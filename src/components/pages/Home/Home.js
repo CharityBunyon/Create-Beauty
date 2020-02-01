@@ -4,8 +4,6 @@ import './Home.scss';
 import lookData from '../../../helpers/data/lookData';
 import authData from '../../../helpers/data/authData';
 import Looks from '../../shared/Looks/Looks';
-// import Ratings from '../../shared/Ratings/Ratings';
-// import ratingData from '../../../helpers/data/ratingData';
 
 class Home extends React.Component {
   state = {

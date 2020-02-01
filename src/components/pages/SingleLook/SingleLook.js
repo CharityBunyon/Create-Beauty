@@ -20,7 +20,6 @@ class SingleLook extends React.Component {
 
   render() {
     const { look } = this.state;
-    // console.log(look);
 
     return (
       <div className="container singleLookView">

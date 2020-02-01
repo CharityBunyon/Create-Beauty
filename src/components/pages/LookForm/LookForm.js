@@ -15,7 +15,6 @@ class LookForm extends React.Component {
     lookImgUrl: '',
     lookSteps: '',
     lookProducts: '',
-    lookShare: '',
     image: '',
     imageUrl: '',
   }
@@ -26,7 +25,7 @@ class LookForm extends React.Component {
       lookData.getSingleLook(lookId)
         .then((response) => {
           this.setState({
-            lookRating: response.data.rating, imageUrl: response.data.imgUrl, lookSteps: response.data.steps, lookProducts: response.data.products, lookShare: response.data.share, selectedFile: response.data,
+            lookRating: response.data.rating, imageUrl: response.data.imgUrl, lookSteps: response.data.steps, lookProducts: response.data.products, selectedFile: response.data,
           });
         })
         .catch((err) => console.error('error from get singleLook, err'));
@@ -55,11 +54,6 @@ class LookForm extends React.Component {
     this.setState({ lookProducts: e.target.value });
   }
 
-  shareChange = (e) => {
-    e.preventDefault();
-    this.setState({ lookShare: e.target.value });
-  }
-
   editLookEvent =(e) => {
     e.preventDefault();
     const { lookId } = this.props.match.params;
@@ -68,7 +62,6 @@ class LookForm extends React.Component {
       imgUrl: this.state.imageUrl,
       steps: this.state.lookSteps,
       products: this.state.lookProducts,
-      share: this.state.lookProducts,
       uid: authData.getUid(),
     };
     lookData.updateLook(lookId, editLook)
@@ -83,7 +76,6 @@ class LookForm extends React.Component {
       imgUrl: this.state.imageUrl,
       steps: this.state.lookSteps,
       products: this.state.lookProducts,
-      share: this.state.lookProducts,
       uid: authData.getUid(),
     };
     lookData.saveLook(newLook)
@@ -109,7 +101,7 @@ class LookForm extends React.Component {
 
   render() {
     const {
-      lookRating, lookProducts, lookShare, lookSteps,
+      lookRating, lookProducts, lookSteps,
     } = this.state;
 
     const { lookId } = this.props.match.params;
@@ -171,18 +163,6 @@ class LookForm extends React.Component {
             </div>
         </div>
         <br/>
-        <div>
-          <div className="form-group ratingArea">
-              <p htmlFor="look-share" className="titles">To Share or Not To Share?</p>
-              <div className="select textareaStyles">
-              <select className="selectOptions" value={lookShare} onChange={this.shareChange}>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-              </div>
-          </div>
-        </div>
-
 
       <div className="container d-flex justify-content-center formBtns">
         <div>

@@ -11,7 +11,7 @@ class CEO extends React.Component {
         <div className="col mainStory">
           <h2 className="quoteTitle">Express Yourself</h2>
           <div className="">
-          <p className="quote container">"Our mission is to help enhance your confidence. We are committed to encouraging men and women to feel both empowered & beautiful. Create Beauty is a direct reflection of my passion for great products that enhance the beauty in everyone."</p>
+          <p className="quote">"Our mission is to help enhance your confidence. We are committed to encouraging men and women to feel both empowered & beautiful. Create Beauty is a direct reflection of my passion for great products that enhance the beauty in everyone."</p>
           </div>
           <blockquote className="streetCred"><strong>"</strong>CHARITY BUNYON - CEO & FOUNDER<strong>"</strong></blockquote>
         </div>

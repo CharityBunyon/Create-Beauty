@@ -6,7 +6,7 @@ class CEO extends React.Component {
     return (
       <div className="container-fluid d-flex ceoDiv">
         <div className="col text-center">
-          <img className="ceoImg" src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/11949433_10207257155850235_3094513880682883888_n.jpg?_nc_cat=105&_nc_oc=AQk5Gn1dfi76oGnvON5GFJqKTO9Z4DiPqMQEVAT4ZhUSv1G3IjftwcuvREKJFpY-u3XWIiW7WJsHBmGBL3tRTQ4-&_nc_ht=scontent-atl3-1.xx&oh=02216193f797b0dfbb5a924fad34e87a&oe=5ED4D8F0" alt="" />
+          <img className="ceoImg" src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/83909849_10220217453049565_8872782266028261376_o.jpg?_nc_cat=100&_nc_oc=AQnPusQIRWZVy6A7CWdN-uKMBekIzyfUiNnorgYb8fw6ktjXr3Lu5Uc8Rwrx3V2jKY2jVOhsU_4F5k4tL_bzRfto&_nc_ht=scontent-atl3-1.xx&oh=fcbe976902827bebd10d3de24d92a0d8&oe=5E917013" alt="" />
         </div>
         <div className="col mainStory">
           <h2 className="quoteTitle">Express Yourself</h2>

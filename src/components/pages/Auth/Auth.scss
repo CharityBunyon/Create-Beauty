@@ -31,7 +31,7 @@
 .creatorTitle {
   font-family:'Roboto', sans-serif;
   font-size: 45px;
-  font-weight: bold;
+  // font-weight: bold;
   text-transform: uppercase;
   text-align: center;
   margin: 70px 0px 20px 0px;
@@ -45,4 +45,18 @@
 }
 .creatorsDiv {
 margin-bottom: 70px;
+}
+
+.brand {
+  width: 600px;
+  height: 1000px;
+}
+
+.models {
+  margin-bottom: 80px;
+}
+
+.slogan {
+  margin:10px 30px;
+  letter-spacing: 5px;
 }

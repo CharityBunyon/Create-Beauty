@@ -7,6 +7,9 @@
 
 .ceoImg {
   margin: 40px 0px;
+  width: 500px;
+  height: 600px;
+  // border-radius: 25%;
 }
 
 .mainStory {
@@ -15,7 +18,7 @@
 }
 
 .quoteTitle {
-  font-weight: bold;
+  // font-weight: bold;
   font-size: 60px;
   font-family:'Roboto', sans-serif;
   letter-spacing: 3px;
@@ -38,12 +41,12 @@
   font-style: oblique;
 }
 
-blockquote strong {
-  color: #fff;
-  margin: 5px;
-  font-size: 18px;
-  // font-weight: 400;
-  // -webkit-font-smoothing: antialiased;
-  // text-rendering: auto;
-  // display: inline-block;
-}
+// blockquote strong {
+//   color: #fff;
+//   margin: 5px;
+//   font-size: 18px;
+//   // font-weight: 400;
+//   // -webkit-font-smoothing: antialiased;
+//   // text-rendering: auto;
+//   // display: inline-block;
+// }

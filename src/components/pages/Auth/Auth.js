@@ -40,6 +40,22 @@ class Auth extends React.Component {
               <button className="btn btn-danger mainCustomBTN" onClick={ this.loginClickEvent}>Login</button>
             </div>
         </nav>
+        <div className="d-flex justify-content-center">
+          <h1 className="slogan">YOUR BEAUTY</h1>
+          <h1 className="slogan">YOUR CREATION</h1>
+          <h1 className="slogan">YOUR POWER</h1>
+        </div>
+        <div className="d-flex models">
+          <div>
+            <img className="brand" src="https://i.pinimg.com/originals/6c/69/32/6c6932602a863b741cff243d6f41ebbd.jpg" alt=""/>
+          </div>
+          <div>
+            <img className="brand" src="https://masterbeautyphotography.com/wp-content/uploads/2016/06/Bridget_0156-web.jpg" alt=""/>
+          </div>
+          <div>
+            <img className="brand" src="https://i.pinimg.com/originals/19/69/62/196962757057a846e24826333ad94baa.jpg" alt=""/>
+          </div>
+        </div>
         <CEO />
         <div className="">
           <h2 className="creatorTitle">Meet Our Creators</h2>

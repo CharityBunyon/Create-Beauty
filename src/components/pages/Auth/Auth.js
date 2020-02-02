@@ -49,8 +49,8 @@ class Auth extends React.Component {
           <div className="justify-content-end container">
             <button
               className="btn btn-outline-dark mainCustomBTN"
-              onClick={this.loginClickEvent}
-            >
+              id="loginBtn"
+              onClick={this.loginClickEvent}>
               Login
             </button>
           </div>

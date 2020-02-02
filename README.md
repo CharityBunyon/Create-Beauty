@@ -16,22 +16,22 @@ Have you ever completed a makeup look and you received so many compliments that 
 
 ## Screenshots
 Main Page (not auth)
-![on load]()
+![on load](https://raw.githubusercontent.com/CharityBunyon/Create-Beauty/master/src/Images/The%20Brand.png)
 
-About Section (not auth)
-![about]()
+CEO Section (not auth)
+![about](https://raw.githubusercontent.com/CharityBunyon/Create-Beauty/master/src/Images/CEO.png)
 
 Creator Collage Section (not auth)
-![ceators]()
+![ceators](https://raw.githubusercontent.com/CharityBunyon/Create-Beauty/master/src/Images/Creators%20Collage.png)
 
 Home Page of All Looks (authed)
-![makeup looks]()
+![makeup looks](https://raw.githubusercontent.com/CharityBunyon/Create-Beauty/master/src/Images/Login%20Home.png)
 
 Single Look Page (authed)
-![single look]()
+![single look](https://raw.githubusercontent.com/CharityBunyon/Create-Beauty/master/src/Images/Singlelook%20Page.png)
 
 Create/Edit Look Form (authed)
-![single look]()
+![single look](https://raw.githubusercontent.com/CharityBunyon/Create-Beauty/master/src/Images/Look%20Form.png)
 
 
 ## Demo

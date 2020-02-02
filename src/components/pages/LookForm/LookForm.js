@@ -11,7 +11,6 @@ firebase.initializeApp(config);
 class LookForm extends React.Component {
   state = {
     lookRating: '',
-    lookImgUrl: '',
     lookSteps: '',
     lookProducts: '',
     image: '',
@@ -29,17 +28,11 @@ class LookForm extends React.Component {
             imageUrl: response.data.imgUrl,
             lookSteps: response.data.steps,
             lookProducts: response.data.products,
-            selectedFile: response.data,
           });
         })
         .catch((err) => console.error('error from get singleLook, err'));
     }
   }
-
-  ratingChange = (e) => {
-    e.preventDefault();
-    this.setState({ selectedFile: e.target.files[0].name });
-  };
 
   ratingChange = (e) => {
     e.preventDefault();
@@ -87,10 +80,6 @@ class LookForm extends React.Component {
       .catch((err) => console.error('error from createLook, err'));
   };
 
-  imageChange = (e) => {
-    e.preventDefault();
-    this.setState({ imageUrl: e.target.value });
-  };
 
   handleUploadSuccess = (filename) => {
     this.setState({
@@ -108,14 +97,27 @@ class LookForm extends React.Component {
 
   // Creating and Editing a Look
 
-  // Import authData, FileUploader, lookData, and config
   // I created a look form where there are various input types
   // Each input type has a value of defined state and they each onChange handler excluding images that will change the state based on the targets value
   // In order to create a new look I create an object called new look that will save all state changes, create a uid and call the saveLook function that allows me to save this look in firebase. The I push the new look to the homepage
   // In order to edit a new look I create an object called edit look that will save all state changes, but all retrieve the lookId, and called the editLook function that will allow me to edit a look and push it back to the homepage
 
+
   // Image Call with Creating and Editing a Look
-  // I created "input" field for my image using fileUploader that uploads images, videos and other files to your firebase storage.
+
+  // 1. Import authData, FileUploader, lookData, and config
+  // 2. Imported fileUploader and firebase
+  // 3. Call firebase.initializeApp(config)
+  // 4. Created image in state to store the image and imageUrl to store the response(STRING) url I receive back
+  // 5. Within fileuploader I'm accepting an image, the name with be the images name which is the "form" that will handle the file upload then I need it send the data to my storage folder and my firebase realtime database
+  // 6. I used storageRef attribute to reference the file lookImage I created in firebase storage
+  // 7. I use the onUploadSuccess attribute that contains an event listener which I'll pass in a filename
+  // 8.  In the onUploadSuccess function I'm going to set the state of image, then I access the firebase storage lookImage folder. Then I'm grabbing the child with the filename.
+  // 9. I call the getDownloadURL function that asynchronously retrieves a long lived download URL with a revokable token from my storage container
+  // 10. Once the response comes back I am setting the state of imageUrl with the url I received from my storage container. I console.log(this.state) in my render to check to see the response I was getting back. I uploaded a file and noticed that I was getting back two responses(the image name and the imageUrl)
+  // 11. Made lookImage in the storage area in firebase to check to see if my image I uploaded was getting saved there
+  // 12. In order to get the image to show in my form I wrapped an image tag inside a parameter that will grab the image url in my image state and use it within my src attribute
+  // 13. In my componentDidMount, create, and edit functions I set the state of imageUrl: response.data.imgUrl so that when a user creates or edits a new look the image will pop up in the form. I wanted it to show on the screen because I couldn't tell if the response was coming back successfully.
 
   render() {
     const { lookRating, lookProducts, lookSteps } = this.state;

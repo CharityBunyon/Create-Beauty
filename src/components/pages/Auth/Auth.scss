@@ -19,6 +19,7 @@
   border:none;
   font-size: 20px;
   font-weight: bold;
+  color: white;
 }
 
 .mainCustomBTN:hover {
@@ -28,6 +29,15 @@
   font-weight: bold;
   color: goldenrod;
 }
+
+#loginBtn {
+  color:#fff;
+}
+
+#loginBtn:hover {
+  color: goldenrod;
+}
+
 .creatorTitle {
   font-family:'Roboto', sans-serif;
   font-size: 45px;

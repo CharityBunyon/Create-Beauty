@@ -1,4 +1,4 @@
-#Front-end Capstone: Create Beauty"
+#Front-end Capstone: "Create Beauty"
 
 ## Description
 Have you ever completed a makeup look and you received so many compliments that you wanted to cherish it forever? Well welcome to Create Beauty, the beauty application that allows you to store your look creation, rate them, and share them with others!

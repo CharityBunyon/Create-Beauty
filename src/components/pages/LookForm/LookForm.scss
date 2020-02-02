@@ -1,3 +1,5 @@
+// General Form Styles
+
 .formTitle {
 color: darkgoldenrod;
 padding: 40px 0px 30px 0px;
@@ -28,11 +30,9 @@ color: goldenrod;
   margin-right: 60px;
   width: 25%;
   margin-left: 20px;
-  // margin-bottom: 50px;
   font-size: 20px;
   text-decoration: none;
   color: #fff;
-  // width: 25%;
   justify-content: center;
 }
 
@@ -47,7 +47,6 @@ color: goldenrod;
   font-size: 20px;
   text-decoration: none;
   color: #fff;
-  // width: 25%;
 }
 
 .closeBtn:hover {
@@ -76,7 +75,6 @@ color: goldenrod;
   margin-left: 40px;
   font-size: 25px;
   text-transform: uppercase;
-  // font-weight: bold;
 }
 
 .textareaStyles {
@@ -112,9 +110,6 @@ color: goldenrod;
 
 // RATING BOX STYLES
 
-// .ratingArea {
-//   width: 5px;
-// }
 
 .ratingArea select {
  width: 100%;
@@ -191,12 +186,6 @@ transform: translateY(-50%);
 
 // Upload Styles
 
-// .uploadImg {
-// width: 50%;
-// height: 20px;
-// // position: absolute;
-// // z-index: -1;
-// }
 .uploadedImg {
   width: 200px;
   height: 200px;

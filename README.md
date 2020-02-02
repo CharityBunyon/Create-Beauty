@@ -1,3 +1,51 @@
+#Front-end Capstone: Create Beauty"
+
+## Description
+Have you ever completed a makeup look and you received so many compliments that you wanted to cherish it forever? Well welcome to Create Beauty, the beauty application that allows you to store your look creation, rate them, and share them with others!
+
+## Technologies Used
+
+* React
+* HTML5
+* CSS
+* Javascript
+* [Bootstrap](https://getbootstrap.com/): free and open-source CSS framework
+* Sass
+* Webpack
+* Firebase
+
+## Screenshots
+Main Page (not auth)
+![on load]()
+
+About Section (not auth)
+![about]()
+
+Creator Collage Section (not auth)
+![ceators]()
+
+Home Page of All Looks (authed)
+![makeup looks]()
+
+Single Look Page (authed)
+![single look]()
+
+Create/Edit Look Form (authed)
+![single look]()
+
+
+## Demo
+[Preview the app here!]( https://create-beauty.firebaseapp.com)
+
+## Contributors
+
+* Charity Bunyon
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

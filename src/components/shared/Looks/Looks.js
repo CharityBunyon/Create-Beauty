@@ -17,6 +17,10 @@ class Looks extends React.Component {
     deleteLook(look.id);
   }
 
+  // I imported Link, Proptypes, and lookshape
+  // I declared my static propTypes of lookShape and my deleteLook function
+  // I'm rendered the look card below that has view button that will allow route users to view an individual look. I have an edit button that will allow a user to edit that will route users to the look form. I have a delete button with an event listener that will call the deleteLookEvent function
+
   render() {
     const { look } = this.props;
 

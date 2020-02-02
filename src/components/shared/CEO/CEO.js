@@ -2,6 +2,8 @@ import React from 'react';
 import './CEO.scss';
 
 class CEO extends React.Component {
+  // I made a CEO component when I'm rendering the domstring below
+  // I exported this component to the Auth page where it's being displayed
   render() {
     return (
       <div className="container-fluid d-flex ceoDiv">

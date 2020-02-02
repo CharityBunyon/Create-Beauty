@@ -7,54 +7,56 @@ import lookData from '../../../helpers/data/lookData';
 import config from '../../../helpers/data/imageData';
 import './LookForm.scss';
 
-
 firebase.initializeApp(config);
 class LookForm extends React.Component {
-  state ={
+  state = {
     lookRating: '',
     lookImgUrl: '',
     lookSteps: '',
     lookProducts: '',
     image: '',
     imageUrl: '',
-  }
+  };
 
   componentDidMount() {
     const { lookId } = this.props.match.params;
     if (lookId) {
-      lookData.getSingleLook(lookId)
+      lookData
+        .getSingleLook(lookId)
         .then((response) => {
           this.setState({
-            lookRating: response.data.rating, imageUrl: response.data.imgUrl, lookSteps: response.data.steps, lookProducts: response.data.products, selectedFile: response.data,
+            lookRating: response.data.rating,
+            imageUrl: response.data.imgUrl,
+            lookSteps: response.data.steps,
+            lookProducts: response.data.products,
+            selectedFile: response.data,
           });
         })
         .catch((err) => console.error('error from get singleLook, err'));
     }
   }
 
-
   ratingChange = (e) => {
     e.preventDefault();
     this.setState({ selectedFile: e.target.files[0].name });
-  }
-
+  };
 
   ratingChange = (e) => {
     e.preventDefault();
     this.setState({ lookRating: e.target.value });
-  }
+  };
 
   stepsChange = (e) => {
     e.preventDefault();
     this.setState({ lookSteps: e.target.value });
-  }
+  };
 
   productsChange = (e) => {
     e.preventDefault();
     this.setState({ lookProducts: e.target.value });
-  }
+  };
 
-  editLookEvent =(e) => {
+  editLookEvent = (e) => {
     e.preventDefault();
     const { lookId } = this.props.match.params;
     const editLook = {
@@ -64,10 +66,11 @@ class LookForm extends React.Component {
       products: this.state.lookProducts,
       uid: authData.getUid(),
     };
-    lookData.updateLook(lookId, editLook)
+    lookData
+      .updateLook(lookId, editLook)
       .then(() => this.props.history.push('/'))
       .catch((err) => console.error('error from edit look', err));
-  }
+  };
 
   createLookEvent = (e) => {
     e.preventDefault();
@@ -78,104 +81,145 @@ class LookForm extends React.Component {
       products: this.state.lookProducts,
       uid: authData.getUid(),
     };
-    lookData.saveLook(newLook)
+    lookData
+      .saveLook(newLook)
       .then(() => this.props.history.push('/'))
       .catch((err) => console.error('error from createLook, err'));
-  }
+  };
 
   imageChange = (e) => {
     e.preventDefault();
     this.setState({ imageUrl: e.target.value });
-  }
+  };
 
   handleUploadSuccess = (filename) => {
     this.setState({
       image: filename,
     });
-    firebase.storage().ref('lookImage').child(filename).getDownloadURL()
+    firebase
+      .storage()
+      .ref('lookImage')
+      .child(filename)
+      .getDownloadURL()
       .then((url) => this.setState({
         imageUrl: url,
       }));
-  }
+  };
 
+  // Creating and Editing a Look
+
+  // Import authData, FileUploader, lookData, and config
+  // I created a look form where there are various input types
+  // Each input type has a value of defined state and they each onChange handler excluding images that will change the state based on the targets value
+  // In order to create a new look I create an object called new look that will save all state changes, create a uid and call the saveLook function that allows me to save this look in firebase. The I push the new look to the homepage
+  // In order to edit a new look I create an object called edit look that will save all state changes, but all retrieve the lookId, and called the editLook function that will allow me to edit a look and push it back to the homepage
+
+  // Image Call with Creating and Editing a Look
+  // I created "input" field for my image using fileUploader that uploads images, videos and other files to your firebase storage.
 
   render() {
-    const {
-      lookRating, lookProducts, lookSteps,
-    } = this.state;
+    const { lookRating, lookProducts, lookSteps } = this.state;
 
     const { lookId } = this.props.match.params;
 
     return (
-    <div className="container">
-    <form className="mainForm">
-      <div className="text-center">
-        <h3 className="formTitle">THE BEAT DEETS</h3>
-      </div>
-      <div className="form-group">
-          <p htmlFor="look-img" className="titles">Upload Image</p>
-          {this.state.image && <img className="uploadedImg" src={this.state.imageUrl} alt="" />}
-          <FileUploader
-            accept="image/*"
-            name='image'
-            storageRef={firebase.storage().ref('lookImage')}
-            onUploadSuccess={this.handleUploadSuccess}
-            className="uploadFileArea"
-          />
-      </div>
-      {/* <br/> */}
-      <div className="form-group routineArea">
-        <p htmlFor="look-steps" className="titles">The Routine:</p>
-        <textarea
-        className="form-control textareaStyles"
-        value={lookSteps}
-        onChange= {this.stepsChange}
-        placeholder="Enter Your Routine"
-        id="look-steps"
-        />
-      </div>
+      <div className="container">
+        <form className="mainForm">
+          <div className="text-center">
+            <h3 className="formTitle">THE BEAT DEETS</h3>
+          </div>
+          <div className="form-group">
+            <p htmlFor="look-img" className="titles">
+              Upload Image
+            </p>
+            {this.state.image && (
+              <img className="uploadedImg" src={this.state.imageUrl} alt="" />
+            )}
+            <FileUploader
+              accept="image/*"
+              name="image"
+              storageRef={firebase.storage().ref('lookImage')}
+              onUploadSuccess={this.handleUploadSuccess}
+              className="uploadFileArea"
+            />
+          </div>
+          {/* <br/> */}
+          <div className="form-group routineArea">
+            <p htmlFor="look-steps" className="titles">
+              The Routine:
+            </p>
+            <textarea
+              className="form-control textareaStyles"
+              value={lookSteps}
+              onChange={this.stepsChange}
+              placeholder="Enter Your Routine"
+              id="look-steps"
+            />
+          </div>
 
-      {/* <br/> */}
-      <div className="form-group productArea">
-        <p htmlFor="look-products " className="titles">The Products:</p>
-        <textarea
-        className="form-control textareaStyles"
-        value={lookProducts}
-        name='lookProducts'
-        onChange= {this.productsChange}
-        placeholder="Enter All Products"
-        id="look-products"
-        />
-      </div>
-      <br/>
+          {/* <br/> */}
+          <div className="form-group productArea">
+            <p htmlFor="look-products " className="titles">
+              The Products:
+            </p>
+            <textarea
+              className="form-control textareaStyles"
+              value={lookProducts}
+              name="lookProducts"
+              onChange={this.productsChange}
+              placeholder="Enter All Products"
+              id="look-products"
+            />
+          </div>
+          <br />
 
-        <div className="form-group ratingArea">
-            <p htmlFor="look-rating" className="titles">The Rating:</p>
+          <div className="form-group ratingArea">
+            <p htmlFor="look-rating" className="titles">
+              The Rating:
+            </p>
             <div className="select textareaStyles">
-              <select className="selectOptions1" value={lookRating} onChange={this.ratingChange}>
-                <option value="Au Natural">Au Natural</option>
-                <option value="That Bitch">That Bitch</option>
+              <select
+                className="selectOptions1"
+                value={lookRating}
+                onChange={this.ratingChange}
+              >
+                <option value="AU NATURAL">Au Natural</option>
+                <option value="THAT BITCH">That Bitch</option>
                 <option value="G.O.A.T">G.O.A.T</option>
-                <option value="Classic">Classic</option>
-                <option value="Snatched">Snatched</option>
-                <option value="Yass Queen">Yasss Queen</option>
+                <option value="CLASSIC">Classic</option>
+                <option value="SNATCHED">Snatched</option>
+                <option value="YASSS QUEEN">Yasss Queen</option>
               </select>
             </div>
-        </div>
-        <br/>
+          </div>
+          <br />
 
-      <div className="container d-flex justify-content-center formBtns">
-        <div>
-        {lookId
-          ? <button className="btn btn-outline-dark btn-lg editBtn" onClick={this.editLookEvent}>Edit</button>
-          : <button className="btn btn-outline-dark btn-lg saveBtn" onClick={this.createLookEvent}>Add</button>
-        }
-        <button className="btn btn-outline-dark btn-lg closeBtn"><Link className="closeTitle" to="/">Close</Link></button>
+          <div className="container d-flex justify-content-center formBtns">
+            <div>
+              {lookId ? (
+                <button
+                  className="btn btn-outline-dark btn-lg editBtn"
+                  onClick={this.editLookEvent}
+                >
+                  Edit
+                </button>
+              ) : (
+                <button
+                  className="btn btn-outline-dark btn-lg saveBtn"
+                  onClick={this.createLookEvent}
+                >
+                  Add
+                </button>
+              )}
+              <button className="btn btn-outline-dark btn-lg closeBtn">
+                <Link className="closeTitle" to="/">
+                  Close
+                </Link>
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
-
-      </div>
-    </form>
-    </div>
     );
   }
 }

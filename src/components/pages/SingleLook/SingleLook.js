@@ -35,7 +35,7 @@ class SingleLook extends React.Component {
           </Link>
         </div>
 
-        <div className="d-flex singleLookImgDiv">
+        <div className="d-flex col singleLookImgDiv">
           <div className="text-center col">
             <img className="card-img-top lookImg" src={look.imgUrl} alt="" />
             <div>

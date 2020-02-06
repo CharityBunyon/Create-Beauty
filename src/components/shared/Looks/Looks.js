@@ -25,7 +25,7 @@ class Looks extends React.Component {
     const { look } = this.props;
 
     return (
-    <div className="Look col">
+    <div className="Look col justify-content-center">
       <div className="card lookCard">
         <div className="card-body text-center">
         <h5 className="card-title">{look.rating}</h5>

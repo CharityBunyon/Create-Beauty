@@ -64,11 +64,27 @@ margin-bottom: 70px;
 
 .models {
   margin-bottom: 80px;
-  overflow: hidden;
-  width: 100vw;
+  max-width: 100%;
+  height: auto;
 }
 
 .slogan {
-  margin:10px 60px;
+  margin:10px 20px;
   letter-spacing: 5px;
+  font-size: 2em;
+}
+
+@media screen and (max-width: 600px) {
+  .mainTitle {
+    justify-content: center;
+    font-size: 30px;
+  }
+
+  #loginBtn {
+    align-self: center;
+  }
+
+  .slogan {
+    font-size: 1rem;
+  }
 }

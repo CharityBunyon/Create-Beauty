@@ -1,6 +1,6 @@
-.container {
+.containerCollage {
   position: relative;
-  width: 50%;
+  // width: 50%;
 }
 
 
@@ -24,7 +24,7 @@
   box-sizing: border-box;
 }
 
-.container:hover .overlay {
+.containerCollage:hover .overlay {
   opacity: 1;
 }
 
@@ -35,8 +35,10 @@
 
 .creatorCard {
   margin: 10px 0px;
+  // padding: 0px 30px;
   width: 402px;
   height: 402px;
+  // border: solid black 1px;
 }
 
 .creatorDeets p {
@@ -51,4 +53,20 @@
 
 #creatorName {
   color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .creatorImg{
+    width: 250px;
+    height: 250px;
+  } 
+  .overlay {
+    width: 252px;
+    height: 252px;
+  }
+
+  .creatorCard {
+    width: 252px;
+    height: 252px;
+  }
 }

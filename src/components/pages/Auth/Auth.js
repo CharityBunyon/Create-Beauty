@@ -6,6 +6,7 @@ import 'firebase/auth';
 import CEO from '../../shared/CEO/CEO';
 import collageData from '../../../helpers/data/collageData';
 import Collage from '../../shared/Collage/Collage';
+import models from '../../../Images/models1.png';
 
 class Auth extends React.Component {
   state = {
@@ -55,42 +56,23 @@ class Auth extends React.Component {
             </button>
           </div>
         </nav>
-        <div className="d-flex justify-content-center">
-          <h1 className="slogan">YOUR BEAUTY</h1>
-          <h1 className="slogan">YOUR CREATION</h1>
-          <h1 className="slogan">YOUR POWER</h1>
+        <div className="d-flex justify-content-around img-fluid flex-wrap">
+          <p className="slogan">YOUR BEAUTY</p>
+          <p className="slogan">YOUR CREATION</p>
+          <p className="slogan">YOUR POWER</p>
         </div>
-        <div className="d-flex models">
-          <div>
-            <img
-              className="brand"
-              src="https://i.pinimg.com/originals/6c/69/32/6c6932602a863b741cff243d6f41ebbd.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              className="brand"
-              src="https://masterbeautyphotography.com/wp-content/uploads/2016/06/Bridget_0156-web.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              className="brand"
-              src="https://i.pinimg.com/originals/19/69/62/196962757057a846e24826333ad94baa.jpg"
-              alt=""
-            />
-          </div>
-        </div>
+
+        <img className="img-fluid" src={models} />
+        <div className="container-fluid">
         <CEO/>
+        </div>
         <div className="">
           <h2 className="creatorTitle">Meet Our Creators</h2>
           <p className="creatorBuyIn">
             Upload your new look and tag @createbeauty - let us show you off!
           </p>
         </div>
-        <div className="container-fluid d-flex flex-wrap creatorsDiv">
+        <div className="creatorsDiv d-flex flex-wrap justify-content-around">
           {this.state.creators.map((creator) => (
             <Collage key={creator.id} creator={creator} />
           ))}
@@ -102,3 +84,4 @@ class Auth extends React.Component {
 }
 
 export default Auth;
+// container-fluid d-flex flex-wrap creatorsDiv

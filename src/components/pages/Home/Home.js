@@ -8,7 +8,6 @@ import Looks from '../../shared/Looks/Looks';
 class Home extends React.Component {
   state = {
     looks: [],
-    // searchedLook: '',
   };
 
   componentDidMount() {
@@ -36,7 +35,6 @@ class Home extends React.Component {
       const newLooksList = this.state.looks.filter(
         (look) => look.rating.toUpperCase().search(input) !== -1,
       );
-      // newLooks.push(newLooksList);
       this.setState({ looks: newLooksList });
     } else {
       this.getLooks();
@@ -73,7 +71,6 @@ class Home extends React.Component {
             type="text"
             className="searchBox"
             placeholder="Search"
-            // value={this.searchedLook}
             onChange={this.filterLooks}
           />
         </div>

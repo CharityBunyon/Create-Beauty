@@ -28,16 +28,16 @@ class Nav extends React.Component {
         return (
           <nav className="navbar navbar-expand-lg navbar-light customNav ">
             <div className="container">
-              <Link className="nav-link brandTitle" to="/">
+              <p><Link className="nav-link brandTitle" to="/">
                 CREATE BEAUTY
-              </Link>
+              </Link></p>
             </div>
-            <div className="justify-content-end container">
+            <div className="justify-content-end container profileDiv">
               <h3 className="userName">Welcome, {userObj.displayName}</h3>
               <img className="profileImg" src={userObj.photoURL} alt="" />
               <div className="">
                 <button
-                  className="nav-link btn btn-danger customBTN"
+                  className="nav-link btn btn-danger customBTN" id="logoutBtn"
                   onClick={this.logMeOut}>
                   Logout
                 </button>

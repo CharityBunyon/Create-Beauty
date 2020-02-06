@@ -37,3 +37,19 @@
   height: 30px;
   width: 10%;
 }
+
+@media screen and (max-width: 600px) {
+.searchArea input {
+  display: flex;
+  flex-wrap: wrap;
+}
+.searchBox {
+  width: 200px;
+  justify-content: space-around;
+  margin-left: 60px;
+  // padding-left: 50px;
+}
+.beatLabel {
+  padding-left: 19px;
+}
+}

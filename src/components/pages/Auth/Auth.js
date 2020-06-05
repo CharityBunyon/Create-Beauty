@@ -61,8 +61,9 @@ class Auth extends React.Component {
           <p className="slogan">YOUR CREATION</p>
           <p className="slogan">YOUR POWER</p>
         </div>
-
-        <img className="img-fluid" src={models} />
+        <div className="text-center">
+        <img className="img-fluid" src={models} alt="ceo charity bunyon"/>
+        </div>
         <div className="container-fluid">
         <CEO/>
         </div>
